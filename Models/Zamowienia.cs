@@ -11,7 +11,6 @@ namespace BallerinaCappucina01.Models
         public int IdZamowienia { get; set; }
         public Dictionary<Produkty, int> ListaProduktow {get; set;}
         public Status Status { get; set; }
-        public string fjutName {  get; set; }
-        public int fjutSize { get; set; }
+
     }
 }
