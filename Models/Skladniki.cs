@@ -13,5 +13,7 @@ namespace BallerinaCappucina01.Models
 
         [Required]
         public string NazwaSkladnika { get; set; }
+
+        int nowa;
     }
 }
