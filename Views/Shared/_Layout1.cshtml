@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - BallerinaCappucina</title>
+    <title>@ViewBag.Title - moja aplikacja platformy ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -12,40 +12,37 @@
             background-color: #F2E7DC;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
+            padding: 0;
         }
 
-        header {
-            background-color: #A67D65;
-            padding: 30px 15px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-style: italic;
-            font-size: 2.5rem;
-            color: white;
-            margin: 0;
-        }
-
-        
-        @@media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-        }
-
-        .container-fluid {
+        .body-content {
             padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        @@media (max-width: 768px) {
+            .body-content {
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>BallerinaCappucina Coffeehouse</h1>
-    </header>
-
-    <div class="container-fluid p-0">
+    <div class="container body-content">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
