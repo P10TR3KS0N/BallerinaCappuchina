@@ -186,6 +186,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produkty.cs" />
     <Compile Include="Models\Skladniki.cs" />
+    <Compile Include="Models\test.cs" />
     <Compile Include="Models\Zamowienia.cs" />
     <Compile Include="Models\ZamowienieProdukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
