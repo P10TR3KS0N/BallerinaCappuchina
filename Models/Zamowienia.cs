@@ -16,5 +16,6 @@ namespace BallerinaCappucina01.Models
 
         public virtual ICollection<ZamowienieProdukt> ProduktyZamowienia { get; set; }
 
+
     }
 }
