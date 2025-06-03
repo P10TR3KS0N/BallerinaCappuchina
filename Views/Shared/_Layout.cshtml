@@ -1,46 +1,157 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title - BallerinaCappucina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Czcionki -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
     <style>
-        body {
-            background-color: #FFFCF5;
-            font-family: 'Segoe UI', sans-serif;
+        html, body {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #FFFCF5;
+            font-family: 'Lexend Deca', sans-serif;
+            color: #000000;
         }
 
         header {
+            height: 100px;
             background-color: #FFFCF5;
-            padding: 30px 15px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+            border-bottom: 2px solid #FAB7CF;
         }
 
-            header h1 {
-                font-style: italic;
-                font-size: 2.5rem;
-                color: #FAB7CF;
-                margin: 0;
+        header img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-family: 'Edu NSW ACT Cursive', cursive;
+            font-style: normal;
+            font-size: 2.5rem;
+            color: #FAB7CF;
+            margin: 0;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: row;
+            height: calc(100vh - 100px);
+        }
+
+        .sidebar {
+            background-color: #A67C58;
+            padding-top: 1rem;
+            width: 200px;
+            overflow-y: auto;
+        }
+
+        .sidebar .list-group-item {
+            background-color: transparent;
+            color: #FFFCF5;
+            border: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar .list-group-item:hover {
+            background-color: #FAB7CF;
+            color: #000;
+            border-radius: 10px;
+            padding-left: 1.5rem;
+            transform: translateX(5px);
+        }
+
+        .sidebar .active {
+            background-color: #FAB7CF;
+            color: #000000;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #FFFCF5;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: #FFFFFF;
+        }
+
+        .card-title {
+            color: #735438;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #FAB7CF;
+            border: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-primary:hover {
+            background-color: #f89fc6;
+            color: #000;
+        }
+
+        @@media (max-width: 768px) {
+            .main-wrapper {
+                flex-direction: column;
+                height: auto;
             }
 
-        
-        @@media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            .sidebar .list-group {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
             header h1 {
                 font-size: 1.5rem;
             }
-        }
 
-        .container-fluid {
-            padding: 20px;
+            header img {
+                height: 40px;
+            }
+
+            .content-area {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="~/Content/BallerinaLogo.png" alt="Logo Ballerina Cappucina" />
         <h1>BallerinaCappucina Coffeehouse</h1>
     </header>
 

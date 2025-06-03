@@ -1,10 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewBag.Title - moja aplikacja platformy ASP.NET</title>
+    <title>@ViewBag.Title - BallerinaCappucina</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
@@ -12,37 +11,36 @@
             background-color: #FFFCF5;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
-        }
-
-        .body-content {
-            padding: 20px;
-        }
-
-        footer {
             text-align: center;
-            padding: 10px;
-            font-size: 14px;
+
+
         }
+
+      
+
+          
+            }
 
         @@media (max-width: 768px) {
-            .body-content {
-                padding: 10px;
+            header img {
+                max-width: 120px;
             }
+        }
 
-            footer {
-                font-size: 12px;
-            }
+        .container-fluid {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container body-content">
+    <div style="height: 100vh; display: flex; justify-content: center; align-items: center; background-color: #FFFCF5;">
+        <a href="@Url.Action("Kiosk", "ZamowieniaView")">
+            <img src="@Url.Content("~/Content/BallerinaLogo.png")" alt="BallerinaCappucina Logo" style="max-width: 350px; height: auto; cursor: pointer;" />
+        </a>
+    </div>
+
+    <div class="container-fluid p-0">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-wrapper">
+    <div class="sidebar">
+        <ul class="list-group">
+            <ul class="list-group">
+                <a href="/Zamowienia/Kiosk" class="list-group-item @(ViewBag.ActiveTab == "Kawa" ? "active" : "")">Kawa</a>
+                <a href="/Zamowienia/Kiosk2" class="list-group-item @(ViewBag.ActiveTab == "Herbata" ? "active" : "")">Herbata</a>
+                <a href="/Zamowienia/Kiosk3" class="list-group-item @(ViewBag.ActiveTab == "Ciasta" ? "active" : "")">Ciasta</a>
+            </ul>
+
+        </ul>
+    </div>
+
+    <div class="content-area">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Ciastko z czekoladą</h5>
+                        <p class="card-text">Chrupiące i czekoladowe</p>
+                        <button class="btn btn-primary">Dodaj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
