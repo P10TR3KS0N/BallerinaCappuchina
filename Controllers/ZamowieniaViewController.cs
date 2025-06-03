@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace BallerinaCappucina01.Controllers
 {
-    public class HomeController : Controller
-{
-    public ActionResult Index()
+    public class ZamowieniaViewController : Controller
     {
-        return View("~/Views/ZamowieniaView/Intro.cshtml");
+        public ActionResult Kiosk()
+        {
+            return View();
+        }
     }
-}
-
 }
