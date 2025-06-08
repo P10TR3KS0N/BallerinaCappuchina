@@ -19,7 +19,8 @@
                     <div class="card-body">
                         <h5 class="card-title">Ciastko z czekoladą</h5>
                         <p class="card-text">Chrupiące i czekoladowe</p>
-                        <button class="btn btn-primary" onclick="openModal('Ciastko z czekoladą')">Dodaj</button>
+                        <button class="btn btn-primary btn-add" onclick="openModal('Ciastko z czekoladą')">Dodaj</button>
+
                     </div>
                 </div>
             </div>
@@ -28,4 +29,25 @@
 </div>
 
 
-   
+
+@Html.Partial("_Modal")
+
+@section scripts {
+    <script>
+        let currentQuantity = 1;
+
+        function openModal(productName) {
+            currentQuantity = 1;
+            document.getElementById('productName').innerText = productName;
+            document.getElementById('quantityDisplay').innerText = currentQuantity;
+            $('#addModal').modal('show');
+        }
+
+        function changeQuantity(change) {
+            currentQuantity += change;
+            if (currentQuantity < 1) currentQuantity = 1;
+            document.getElementById('quantityDisplay').innerText = currentQuantity;
+        }
+    </script>
+}
+
