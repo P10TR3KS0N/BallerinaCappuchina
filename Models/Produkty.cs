@@ -9,6 +9,7 @@ namespace BallerinaCappucina01.Models
 {
     public class Produkty
     {
+        private int id;
         [Key]
         public int IdProduktu { get; set; }
 
@@ -20,5 +21,23 @@ namespace BallerinaCappucina01.Models
         [ForeignKey("Kategoria")]
         public int KategoriaId { get; set; }
         public virtual Kategoria Kategoria { get; set; }
+
+        public Produkty(string nazwaProduktu)
+        {
+            IdProduktu = id;
+            id++;
+            NazwaProduktu = nazwaProduktu;
+            Skladniki = new List<Skladniki>();
+        }
+        public DodajSkladnik(Skladniki skladnik)
+        {
+
+            Skladniki.Add(skladnik);
+        }
+        public void UsunSkladnik(Skladniki skladnik)
+        {
+            Skladniki.Remove(skladnik);
+        }
+
     }
 }

@@ -15,7 +15,11 @@ namespace BallerinaCappucina01.Models
         public Status Status { get; set; }
 
         public virtual ICollection<ZamowienieProdukt> ProduktyZamowienia { get; set; }
-
+        public Zamowienia()
+        {
+            ProduktyZamowienia = new List<ZamowienieProdukt>();
+            Status = Status.przygotowywany;
+        }
 
     }
 }

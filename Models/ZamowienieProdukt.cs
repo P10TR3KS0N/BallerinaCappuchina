@@ -9,6 +9,10 @@ namespace BallerinaCappucina01.Models
 {
     public class ZamowienieProdukt
     {
+        public ZamowienieProdukt()
+        {
+            // Constructor logic if needed
+        }
         [Key]
         public int Id { get; set; }
 

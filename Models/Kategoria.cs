@@ -8,6 +8,7 @@ namespace BallerinaCappucina01.Models
 {
     public class Kategoria
     {
+        private int id;
         [Key]
         public int IdKategoria { get; set; }
 
@@ -15,5 +16,13 @@ namespace BallerinaCappucina01.Models
         public string Name { get; set; }
 
         public virtual ICollection<Produkty> Produkty { get; set; }
+
+        public Kategoria(string name)
+        {
+            IdKategoria = id;
+            id++;
+            Name = name;
+        }
+        
     }
 }
