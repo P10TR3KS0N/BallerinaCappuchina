@@ -22,6 +22,22 @@ namespace BallerinaCappucina01.Models
             IdKategoria = id;
             id++;
             Name = name;
+            Produkty = new List<Produkty>();
+        }
+        public void DodajProdukt(Produkty produkt)
+        {
+            Produkty.Add(produkt);
+        }
+        public void UsunProdukt(Produkty produkt)
+        {
+            Produkty.Remove(produkt);
+        }
+        public void UsunKategorie()
+        {
+            Produkty.Clear();
+            Name = string.Empty;
+            IdKategoria = 0;
+            id = 0;
         }
         
     }

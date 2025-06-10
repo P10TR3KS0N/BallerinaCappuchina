@@ -19,8 +19,15 @@ namespace BallerinaCappucina01.Models
         {
             IdSkladnika = id;
             id++;
-            
+
             NazwaSkladnika = nazwaSkladnika;
         }
+        public void UsunSkladnik()
+        {
+            NazwaSkladnika = string.Empty;
+            IdSkladnika = 0;
+            id = 0;
+        }
+        
     }
 }

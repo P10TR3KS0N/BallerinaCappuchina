@@ -29,7 +29,7 @@ namespace BallerinaCappucina01.Models
             NazwaProduktu = nazwaProduktu;
             Skladniki = new List<Skladniki>();
         }
-        public DodajSkladnik(Skladniki skladnik)
+        public void DodajSkladnik(Skladniki skladnik)
         {
 
             Skladniki.Add(skladnik);
@@ -38,6 +38,16 @@ namespace BallerinaCappucina01.Models
         {
             Skladniki.Remove(skladnik);
         }
+        public void UsunProdukt()
+        {
+            Skladniki.Clear();
+            NazwaProduktu = string.Empty;
+            IdProduktu = 0;
+            id = 0;
+            KategoriaId = 0;
+            Kategoria = null;
+        }
+        
 
     }
 }
