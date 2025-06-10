@@ -29,7 +29,7 @@ namespace BallerinaCappucina01.Models
             NazwaProduktu = nazwaProduktu;
             Skladniki = new List<Skladniki>();
         }
-        public DodajSkladnik(Skladniki skladnik)
+        public void DodajSkladnik(Skladniki skladnik)
         {
 
             Skladniki.Add(skladnik);

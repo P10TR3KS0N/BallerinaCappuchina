@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KioskController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -188,7 +189,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Produkty.cs" />
     <Compile Include="Models\Skladniki.cs" />
-    <Compile Include="Models\test.cs" />
     <Compile Include="Models\Zamowienia.cs" />
     <Compile Include="Models\ZamowienieProdukt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,6 +271,8 @@
     <Content Include="Views\Shared\ZamowienieLayout.cshtml" />
     <Content Include="Views\ZamowieniaView\Zamowienie.cshtml" />
     <Content Include="Views\Shared\_Modal.cshtml" />
+    <Content Include="Views\Administrator\Admin.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
