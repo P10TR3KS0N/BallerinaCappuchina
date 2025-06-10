@@ -39,6 +39,10 @@ namespace BallerinaCappucina01.Models
         {
             Status = Status.anulowane;
         }
+        public decimal WyswietlWartosc()
+        {
+            return WartoscZamowienia;
+        }
 
 
     }
