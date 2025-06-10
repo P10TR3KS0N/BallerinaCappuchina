@@ -38,17 +38,44 @@
                     new Produkty
                     {
                         NazwaProduktu = "Cappuccino",
-                        Kategoria = context.Kategorie.Single(k => k.Name == "Kawa"),
-                        Skladniki = new List<Skladniki>
-                        {
-                context.Skladniki.Single(s => s.NazwaSkladnika == "Woda"),
-                context.Skladniki.Single(s => s.NazwaSkladnika == "Kawa"),
-                context.Skladniki.Single(s => s.NazwaSkladnika == "Mleko")
-                        }
+                        Kategoria = context.Kategorie.FirstOrDefault(k => k.Name == "Kawa"),
+                        Skladniki = context.Skladniki.Where(s => s.NazwaSkladnika == "Woda" || s.NazwaSkladnika == "Kawa" || s.NazwaSkladnika == "Mleko").ToList()
                     }
                 );
 
-                // Na koniec zapisz zmiany (nie jest obowiązkowe, EF robi to automatycznie)
+                // Dodaj użytkowników
+                context.Uzytkownicy.AddOrUpdate(
+                    u => u.Email,
+                    new Uzytkownik { Imie = "Jan", Nazwisko = "Kowalski", Email = "jan.kowalski@example.com", Haslo = "test123" }
+                );
+
+                // Dodaj zamówienia
+                var user = context.Uzytkownicy.FirstOrDefault(u => u.Email == "jan.kowalski@example.com");
+                var produkt = context.Produkty.FirstOrDefault(p => p.NazwaProduktu == "Cappuccino");
+                if (user != null && produkt != null)
+                {
+                    context.Zamowienia.AddOrUpdate(
+                        z => z.Id,
+                        new Zamowienie
+                        {
+                            Uzytkownik = user,
+                            DataZamowienia = DateTime.Now,
+                            Pozycje = new List<PozycjaZamowienia>
+                            {
+                                new PozycjaZamowienia { Produkt = produkt, Ilosc = 2 }
+                            }
+                        }
+                    );
+                }
+
+                // Dodaj inne modele jeśli istnieją (np. Role, Oceny, itp.)
+                // Przykład dla ról:
+                context.Role.AddOrUpdate(
+                    r => r.Nazwa,
+                    new Rola { Nazwa = "Admin" },
+                    new Rola { Nazwa = "User" }
+                );
+
                 context.SaveChanges();
             }
         }
