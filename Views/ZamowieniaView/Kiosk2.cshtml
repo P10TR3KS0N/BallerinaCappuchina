@@ -19,14 +19,17 @@
                     <div class="card-body">
                         <h5 class="card-title">Zielona Herbata</h5>
                         <p class="card-text">Delikatna i aromatyczna</p>
-                        <button class="btn btn-primary btn-add" onclick="openModal('Zielona Herbata')">Dodaj</button>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price text-dark fw-bold">9,00 zł</span>
+                            <button class="btn btn-primary btn-add" onclick="openModal('Zielona Herbata')">Dodaj</button>
 
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+    </div>
 
 @Html.Partial("_Modal")
 
