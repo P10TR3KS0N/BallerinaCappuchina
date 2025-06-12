@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 
 namespace BallerinaCappucina01.Models
@@ -17,6 +18,7 @@ namespace BallerinaCappucina01.Models
         public Status Status { get; set; }
 
         public virtual ICollection<ZamowienieProdukt> Produkty { get; set; }
+<<<<<<< Updated upstream
         //public Zamowienia()
         //{
         //    ProduktyZamowienia = new List<ZamowienieProdukt>();
@@ -42,6 +44,29 @@ namespace BallerinaCappucina01.Models
         public decimal WyswietlWartosc()
         {
             return WartoscZamowienia;
+=======
+        
+        public Zamowienia(int id)
+        {
+            IdZamowienia = id;
+            WartoscZamowienia = 0;
+            DataZamowienia = DateTime.Now;
+            Status = Status.przygotowywany;
+            Produkty = new List<ZamowienieProdukt>();
+        }
+
+        public void DodajProdukt(ZamowienieProdukt p)
+        {
+            Produkty.Add(p);
+        }
+        public void UsunProdukt(ZamowienieProdukt p)
+        {
+            Produkty.Remove(p);
+        }
+        public void ZmienStatus(Status s)
+        {
+            Status = s;
+>>>>>>> Stashed changes
         }
 
 

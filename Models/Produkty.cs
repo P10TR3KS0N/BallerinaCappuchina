@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.Owin.Security;
 
 namespace BallerinaCappucina01.Models
 {
@@ -22,6 +23,7 @@ namespace BallerinaCappucina01.Models
         public int KategoriaId { get; set; }
         public virtual Kategoria Kategoria { get; set; }
 
+<<<<<<< Updated upstream
         public Produkty(string nazwaProduktu)
         {
             IdProduktu = id;
@@ -48,6 +50,25 @@ namespace BallerinaCappucina01.Models
             Kategoria = null;
         }
         
+=======
+        public Produkty(int id, string nazwa, Kategoria kategoria)
+        {
+            IdProduktu = id;
+            NazwaProduktu = nazwa;
+            Kategoria = kategoria;
+            Skladniki = new List<Skladniki>();
+        }
+
+        public void DodajSkladnik(Skladniki s)
+        {
+            Skladniki.Add(s);
+        }
+        public void UsunSkladnik(Skladniki s)
+        {
+            Skladniki.Remove(s);
+        }
+
+>>>>>>> Stashed changes
 
     }
 }
