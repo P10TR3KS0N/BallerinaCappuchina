@@ -14,74 +14,74 @@
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(BallerinaDbContext context) // Poprawiono typ parametru na BallerinaDbContext  
+        protected override void Seed(BallerinaDbContext context)
         {
             // 1. Seed kategorii  
             var kategorie = new List<Kategoria>
-               {
-                   new Kategoria { IdKategoria = 1, Name = "Kawy" },
-                   new Kategoria { IdKategoria = 2, Name = "Herbaty" },
-                   new Kategoria { IdKategoria = 3, Name = "Desery" },
-                   new Kategoria { IdKategoria = 4, Name = "Kanapki" },
-                   new Kategoria { IdKategoria = 5, Name = "Napoje zimne" }
-               };
-            kategorie.ForEach(k => context.Kategorie.AddOrUpdate(k)); // Użyto AddOrUpdate zamiast Add  
+                   {
+                       new Kategoria("Kawy") { IdKategoria = 1 },
+                       new Kategoria("Herbaty") { IdKategoria = 2 },
+                       new Kategoria("Desery") { IdKategoria = 3 },
+                       new Kategoria("Kanapki") { IdKategoria = 4 },
+                       new Kategoria("Napoje zimne") { IdKategoria = 5 }
+                   };
+            kategorie.ForEach(k => context.Kategorie.AddOrUpdate(k));
             context.SaveChanges();
 
             // 2. Seed składników  
             var skladniki = new List<Skladniki>
-               {
-                   new Skladniki { IdSkladnika = 1, NazwaSkladnika = "Ziarna kawy Arabica" },
-                   new Skladniki { IdSkladnika = 2, NazwaSkladnika = "Mleko 3.2%" },
-                   new Skladniki { IdSkladnika = 3, NazwaSkladnika = "Cukier biały" },
-                   new Skladniki { IdSkladnika = 4, NazwaSkladnika = "Śmietanka 30%" },
-                   new Skladniki { IdSkladnika = 5, NazwaSkladnika = "Syrop waniliowy" },
-                   new Skladniki { IdSkladnika = 6, NazwaSkladnika = "Liście herbaty Earl Grey" },
-                   new Skladniki { IdSkladnika = 7, NazwaSkladnika = "Czekolada mleczna" },
-                   new Skladniki { IdSkladnika = 8, NazwaSkladnika = "Chleb żytni" },
-                   new Skladniki { IdSkladnika = 9, NazwaSkladnika = "Szynka wiejska" },
-                   new Skladniki { IdSkladnika = 10, NazwaSkladnika = "Ser Gouda" },
-                   new Skladniki { IdSkladnika = 11, NazwaSkladnika = "Lód" },
-                   new Skladniki { IdSkladnika = 12, NazwaSkladnika = "Woda mineralna" },
-                   new Skladniki { IdSkladnika = 13, NazwaSkladnika = "Miód" },
-                   new Skladniki { IdSkladnika = 14, NazwaSkladnika = "Cynamon" }
-               };
-            skladniki.ForEach(s => context.Skladniki.AddOrUpdate(s)); // Użyto AddOrUpdate zamiast Add  
+                   {
+                       new Skladniki("Ziarna kawy Arabica") { IdSkladnika = 1 },
+                       new Skladniki("Mleko 3.2%") { IdSkladnika = 2 },
+                       new Skladniki("Cukier biały") { IdSkladnika = 3 },
+                       new Skladniki("Śmietanka 30%") { IdSkladnika = 4 },
+                       new Skladniki("Syrop waniliowy") { IdSkladnika = 5 },
+                       new Skladniki("Liście herbaty Earl Grey") { IdSkladnika = 6 },
+                       new Skladniki("Czekolada mleczna") { IdSkladnika = 7 },
+                       new Skladniki("Chleb żytni") { IdSkladnika = 8 },
+                       new Skladniki("Szynka wiejska") { IdSkladnika = 9 },
+                       new Skladniki("Ser Gouda") { IdSkladnika = 10 },
+                       new Skladniki("Lód") { IdSkladnika = 11 },
+                       new Skladniki("Woda mineralna") { IdSkladnika = 12 },
+                       new Skladniki("Miód") { IdSkladnika = 13 },
+                       new Skladniki("Cynamon") { IdSkladnika = 14 }
+                   };
+            skladniki.ForEach(s => context.Skladniki.AddOrUpdate(s));
             context.SaveChanges();
 
             // 3. Seed produktów  
             var produkty = new List<Produkty>
-               {
-                   new Produkty(1, "Espresso", kategorie[0]),
-                   new Produkty(2, "Cappuccino", kategorie[0]),
-                   new Produkty(3, "Latte Macchiato", kategorie[0]),
-                   new Produkty(4, "Americano", kategorie[0]),
-                   new Produkty(5, "Herbata Czarna", kategorie[1]),
-                   new Produkty(6, "Herbata Owocowa", kategorie[1]),
-                   new Produkty(7, "Ciasto Czekoladowe", kategorie[2]),
-                   new Produkty(8, "Sernik", kategorie[2]),
-                   new Produkty(9, "Kanapka z Szynką", kategorie[3]),
-                   new Produkty(10, "Tost Serowy", kategorie[3]),
-                   new Produkty(11, "Woda Mineralna", kategorie[4]),
-                   new Produkty(12, "Mrożona Herbata", kategorie[4])
-               };
+                   {
+                       new Produkty("Espresso") { IdProduktu = 1, Kategoria = kategorie[0], KategoriaId = kategorie[0].IdKategoria },
+                       new Produkty("Cappuccino") { IdProduktu = 2, Kategoria = kategorie[0], KategoriaId = kategorie[0].IdKategoria },
+                       new Produkty("Latte Macchiato") { IdProduktu = 3, Kategoria = kategorie[0], KategoriaId = kategorie[0].IdKategoria },
+                       new Produkty("Americano") { IdProduktu = 4, Kategoria = kategorie[0], KategoriaId = kategorie[0].IdKategoria },
+                       new Produkty("Herbata Czarna") { IdProduktu = 5, Kategoria = kategorie[1], KategoriaId = kategorie[1].IdKategoria },
+                       new Produkty("Herbata Owocowa") { IdProduktu = 6, Kategoria = kategorie[1], KategoriaId = kategorie[1].IdKategoria },
+                       new Produkty("Ciasto Czekoladowe") { IdProduktu = 7, Kategoria = kategorie[2], KategoriaId = kategorie[2].IdKategoria },
+                       new Produkty("Sernik") { IdProduktu = 8, Kategoria = kategorie[2], KategoriaId = kategorie[2].IdKategoria },
+                       new Produkty("Kanapka z Szynką") { IdProduktu = 9, Kategoria = kategorie[3], KategoriaId = kategorie[3].IdKategoria },
+                       new Produkty("Tost Serowy") { IdProduktu = 10, Kategoria = kategorie[3], KategoriaId = kategorie[3].IdKategoria },
+                       new Produkty("Woda Mineralna") { IdProduktu = 11, Kategoria = kategorie[4], KategoriaId = kategorie[4].IdKategoria },
+                       new Produkty("Mrożona Herbata") { IdProduktu = 12, Kategoria = kategorie[4], KategoriaId = kategorie[4].IdKategoria }
+                   };
 
-            produkty.ForEach(p => context.Produkty.AddOrUpdate(p)); // Użyto AddOrUpdate zamiast Add  
+            produkty.ForEach(p => context.Produkty.AddOrUpdate(p));
             context.SaveChanges();
 
             // 4. Seed zamówień  
             var zamowienia = new List<Zamowienia>
-               {
-                   new Zamowienia(1001),
-                   new Zamowienia(1002),
-                   new Zamowienia(1003),
-                   new Zamowienia(1004),
-                   new Zamowienia(1005)
-               };
+                   {
+                       new Zamowienia() { IdZamowienia = 1001 },
+                       new Zamowienia() { IdZamowienia = 1002 },
+                       new Zamowienia() { IdZamowienia = 1003 },
+                       new Zamowienia() { IdZamowienia = 1004 },
+                       new Zamowienia() { IdZamowienia = 1005 }
+                   };
 
             foreach (var zamowienie in zamowienia)
             {
-                context.Zamowienia.AddOrUpdate(zamowienie); // Użyto AddOrUpdate zamiast Add  
+                context.Zamowienia.AddOrUpdate(zamowienie);
             }
 
             context.SaveChanges();

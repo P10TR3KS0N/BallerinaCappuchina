@@ -25,5 +25,7 @@ namespace BallerinaCappucina01.Models
         public virtual Produkty Produkt { get; set; }
 
         public int Ilosc { get; set; }
+        public decimal Cena { get; set; }
+
     }
 }

@@ -18,17 +18,16 @@ namespace BallerinaCappucina01.Models
         public Status Status { get; set; }
 
         public virtual ICollection<ZamowienieProdukt> Produkty { get; set; }
-<<<<<<< Updated upstream
-        //public Zamowienia()
-        //{
-        //    ProduktyZamowienia = new List<ZamowienieProdukt>();
-        //    Status = Status.przygotowywany;
-        //}
-        //public void DodajProdukt(ZamowienieProdukt produkt)
-        //{
-        //    Produkty.Add(produkt);
-        //    WartoscZamowienia += produkt.Cena * produkt.Ilosc;
-        //}
+        public Zamowienia()
+        {
+            Produkty = new List<ZamowienieProdukt>();
+            Status = Status.przygotowywany;
+        }
+        public void DodajProdukt(ZamowienieProdukt produkt)
+        {
+            Produkty.Add(produkt);
+            WartoscZamowienia += produkt.Cena * produkt.Ilosc;
+        }
         public void Gotowy()
         {
             Status = Status.gotowy;
@@ -44,31 +43,7 @@ namespace BallerinaCappucina01.Models
         public decimal WyswietlWartosc()
         {
             return WartoscZamowienia;
-=======
-        
-        public Zamowienia(int id)
-        {
-            IdZamowienia = id;
-            WartoscZamowienia = 0;
-            DataZamowienia = DateTime.Now;
-            Status = Status.przygotowywany;
-            Produkty = new List<ZamowienieProdukt>();
-        }
 
-        public void DodajProdukt(ZamowienieProdukt p)
-        {
-            Produkty.Add(p);
         }
-        public void UsunProdukt(ZamowienieProdukt p)
-        {
-            Produkty.Remove(p);
-        }
-        public void ZmienStatus(Status s)
-        {
-            Status = s;
->>>>>>> Stashed changes
-        }
-
-
     }
 }
